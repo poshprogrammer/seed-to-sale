@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Seed" max_length="40" name="x_563318_seed_to_0_seed" type="collection">
+        <element label="Analyst Date" max_length="255" name="analyst_date" type="glide_date_time"/>
+        <element label="Certificate of Analysis ID" max_length="40" name="certificate_of_analysis_id" type="string"/>
+        <element label="Client Sample ID" max_length="40" name="client_sample_id" type="string"/>
+        <element label="Farmer" max_length="32" name="farmer" reference="x_563318_seed_to_0_farmer" type="reference"/>
+        <element label="Initiate Analyses" max_length="40" name="initiate_analyses" type="glide_date"/>
+        <element label="Laboratory" max_length="32" name="laboratory" reference="x_563318_seed_to_0_laboratory" type="reference"/>
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Receive Sample" max_length="255" name="receive_sample" type="glide_date"/>
+        <element label="Reviewer Date" max_length="255" name="reviewer_date" type="glide_date_time"/>
+        <element label="Sample Description" max_length="40" name="sample_description" type="string"/>
+        <element label="Seed-to-Sale Contract" max_length="255" name="seed_to_sale_contract" type="file_attachment"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice/>
+        </element>
+        <element label="Total CBD/THC" max_length="38" name="total_cbd_thc" type="decimal"/>
+        <index name="index">
+            <element name="laboratory"/>
+        </index>
+        <index name="index2">
+            <element name="farmer"/>
+        </index>
     </element>
 </database>

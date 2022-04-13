@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Seed" max_length="40" name="x_563318_seed_to_0_seed" type="collection">
+    <element label="Seed" max_length="40" name="x_563318_seed_to_0_seed" sizeclass="0" type="collection">
         <element label="Analyst Date" max_length="255" name="analyst_date" type="glide_date_time"/>
+        <element label="Bail" max_length="32" name="bail" reference="x_563318_seed_to_0_bail" type="reference"/>
         <element label="Certificate of Analysis ID" max_length="40" name="certificate_of_analysis_id" type="string"/>
         <element label="Client Sample ID" max_length="40" name="client_sample_id" type="string"/>
         <element label="Farmer" max_length="32" name="farmer" reference="x_563318_seed_to_0_farmer" type="reference"/>
+        <element label="Harvest Date" max_length="255" name="harvest_date" type="glide_date"/>
         <element label="Initiate Analyses" max_length="40" name="initiate_analyses" type="glide_date"/>
         <element label="Laboratory" max_length="32" name="laboratory" reference="x_563318_seed_to_0_laboratory" type="reference"/>
+        <element label="Market Price at Time of Sale" max_length="20" name="market_price" type="currency"/>
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Purchase Total" max_length="20" name="purchase_total" type="currency"/>
         <element label="Receive Sample" max_length="255" name="receive_sample" type="glide_date"/>
         <element label="Reviewer Date" max_length="255" name="reviewer_date" type="glide_date_time"/>
         <element label="Sample Description" max_length="40" name="sample_description" type="string"/>
         <element label="Seed-to-Sale Contract" max_length="255" name="seed_to_sale_contract" type="file_attachment"/>
-        <element choice="1" label="Status" max_length="40" name="status" type="choice">
-            <choice/>
+        <element choice="1" default="stock" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Stock" sequence="0" value="stock"/>
+                <element inactive_on_update="false" label="Reserved" sequence="1" value="reserved"/>
+                <element inactive_on_update="false" label="Purchased" sequence="2" value="purchased"/>
+                <element inactive_on_update="false" label="Growing" sequence="3" value="growing"/>
+                <element inactive_on_update="false" label="Harvested" sequence="4" value="harvested"/>
+                <element inactive_on_update="false" label="En Route" sequence="5" value="en_route"/>
+                <element inactive_on_update="false" label="Processing" sequence="6" value="processing"/>
+                <element inactive_on_update="false" label="Consumed" sequence="7" value="consumed"/>
+            </choice>
         </element>
         <element label="Total CBD/THC" max_length="38" name="total_cbd_thc" type="decimal"/>
         <index name="index">
@@ -20,6 +33,9 @@
         </index>
         <index name="index2">
             <element name="farmer"/>
+        </index>
+        <index name="index3">
+            <element name="bail"/>
         </index>
     </element>
 </database>
